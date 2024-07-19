@@ -1,0 +1,29 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+    //    int left=0,right=0;
+
+    //    while(left <right){
+    //        long long sum=nums[left] +nums[right];
+    //        if(sum== target) return "yes";
+    //        else if(sum < target) left++;
+    //        else right--;
+
+    //    }
+    //    return "no";
+
+    map<long long ,int>hashmap;
+    int n=nums.size();
+
+    for(int i=0;i<n;i++){
+        int ele=nums[i];
+        long long more= target-ele;
+        if(hashmap.find(more) != hashmap.end()){
+            return {hashmap[more],i};
+        }
+        hashmap[ele]=i;
+    }
+    return {-1,-1};
+        
+    }
+};
